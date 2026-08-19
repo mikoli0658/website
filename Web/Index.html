@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Click Me</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 30% 20%, #1e1b4b, #0a0a12 70%);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    overflow: hidden;
+  }
+  #wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 20px;
+    text-align: center;
+  }
+  #btn {
+    padding: 18px 48px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #7c3aed, #db2777);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  #btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(219, 39, 119, 0.55);
+  }
+  #btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+  #msg {
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    display: none;
+    background: linear-gradient(135deg, #f472b6, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(167, 139, 250, 0.4);
+    animation: pop 0.5s ease;
+  }
+  @keyframes pop {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  video {
+    display: none;
+    max-width: 90vw;
+    max-height: 75vh;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  }
+</style>
+</head>
+<body>
+  <div id="wrap">
+    <button id="btn">Click here for a surprise!</button>
+    <div id="msg">u got tricked by mikoli</div>
+    <video id="vid" src="rick.mp4" controls autoplay></video>
+  </div>
+
+  <script>
+    document.getElementById('btn').addEventListener('click', function() {
+      this.style.display = 'none';
+      document.getElementById('msg').style.display = 'block';
+      var vid = document.getElementById('vid');
+      vid.style.display = 'block';
+      vid.play();
+    });
+  </script>
+</body>
+</html>
